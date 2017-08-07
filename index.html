@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <meta property="og:title" content="High-Assurance Cryptographic Hardware from Untrusted Components" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/chip.jpg"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:description" content="This site hosts material and references on our research on high-assurance hardware with untrusted components."/>
+    <meta charset="utf-8">
+    <title>Cryptographic Hardware from Untrusted Components</title>
+    <meta name="description" content="This site hosts material and references on our research on high-assurance hardware with untrusted components.">
+    <meta name="author" content="Vasilios Mavroudis">
+
+    <meta property="og:image" content="images/chip.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,600,100" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="tweleve columns" style="margin-top: 10%">
+          <div class="text-center">
+            <img src="images/chip.jpg" height="200px" alt="Hardware components may embed malicious circuitry." />
+          </div>
+
+          <br />
+
+          <div class="text-center">
+          <h1 style="margin-top: 2%;" class="text-center">Cryptographic Hardware <br/>from Untrusted Components</h1>
+ 
+          </div>
+
+            <nav class="text-center text-large">
+              <a href="#FAQ">FAQ</a> &bullet; 
+              <a href="#Members">Who we are</a> &bullet; 
+              <a href="#Publications">Publications</a> &bullet; 
+              <a href="mailto:v.mavroudis@cs.ucl.ac.uk">Contact us</a>
+            </nav>
+
+          <div class="row">
+            <hr class="four columns offset-by-four" />
+          </div>
+		  
+		  
+          <div class="text-large text-justify">
+			            <h4 class="text-center">In a Nutshell</h4>
+
+			<p>For the first time, <strong>we introduce a high-level architecture that can tolerate multiple, colluding malicious hardware components</strong>, and a new approach for managing the risk of compromises in cryptographic hardware.</p>
+		  
+			<p>Existing high-assurance systems cannot reliably maintain their security properties in the presence of compromised hardware components. In this work, we challenge this perception and demonstrate how trusted, high-assurance hardware can be built from untrusted and potentially malicious components.</p>            
+          </div>
+        </div>
+      </div>
+
+	  <!--
+      <div id="prototype" class="row">
+        <div class="tweleve columns">
+          <h3>Prototype</h3>
+	        <img src="images/prototype.jpg" height="200px" alt="" /></br>
+			<img src="images/overview.png" height="200px" alt="" />-->
+
+
+
+      <div id="FAQ" class="row">
+        <div class="tweleve columns">
+          <h3>FAQ</h3>
+          <dl>		  
+            <dt>What's an untrusted component?</dt>
+            <dd>Any kind of hardware component (e.g., Integrated Circuit) whose circuitry and functionality has not been 100% audited. This is often the case with components that are produced in facilities overseas. </dd>
+				
+			<dt>Is your architecture secure against all types of errors and attacks?</dt>
+            <dd> Existing cryptographic hardware is not tolerant to hardware errors and even one compromised component is enough to breach the security of the whole system. In contrast, our architecture is tolerant to both unintentional and intentional errors: 
+			<ul>
+				<li>Unintentional errors usually occur in ICs with fabrication deficiences (e.g., broken Random Number Generators).</li>
+				<li>Intentional errors are usually <i>"hardware trojan horses"</i> or <i>"backdoors"</i> put in place by an adversary residing in the IC supply chain.</li>
+			</ul>
+			</dd>
+
+			<dt>Can't hardware vendors just test the chips they use?</dt>			
+			<dd>In the last decade, the problem of manufacturing errors became increasingly prominent, as more vendors opt to outsource the fabrication of their integrated circuit designs, in facilities overseas. For this reason, vendors run post-fabrication tests that automatically weed out deficient and faulty chips. However, such tests are not effective against two very damaging error classes: 1) subtle unintentional errors (e.g., malfunctioning RNGs) and 2) malicious circuitry (e.g., stealthy Hardware Trojans). Such errors are very hard to detect and require constant upgrades of expensive forensics equipment, which contradicts the motives of fabrication outsourcing.</dd>
+			
+		    <dt>What about colluding malicious hardware components?</dt>
+            <dd> In the case of colluding components, our proposed architecture remains
+			secure as long as at least one of the components is not compromised. Alternatively, 
+			if there are two or more adversaries that managed to compromise 100% of the components, the system retains its security proprerties as long as they adversaries do not collude.
+			</dd>		
+			
+
+			
+		  
+          </dl>
+        </div>
+      </div>
+
+      <div id="Members" class="row">
+        <div class="tweleve columns">
+          <h2>Who we are</h2>
+		  <p>A joint research project between <a href="http://sec.cs.ucl.ac.uk/home/">University College London</a>, <a href="https://crocs.fi.muni.cz/main">Masaryk University</a> and <a href="https://enigmabridge.com/">Enigmabridge</a></p>
+
+          <dl>
+			<dt><a href="https://mavroud.is/">Vasilios Mavroudis</a>, <a href="https://twitter.com/mavroudisv">@mavroudisv</a></dt>
+            <dd>University College London (UCL)</dd>
+			
+			<dt><a href="https://crocs.fi.muni.cz/people/svenda/">Petr Svenda</a>, <a href="https://twitter.com/rngsec">@rngsec</a></dt>
+            <dd>Masaryk University</dd>
+
+			<dt><a href="http://andreacerulli.github.io/">Andrea Cerulli</a></dt>
+            <dd>University College London (UCL)</dd>
+			
+			<dt><a href="https://uk.linkedin.com/in/dancvrcek/">Dan Cvrcek</a>, <a href="https://twitter.com/dancvrcek">@dancvrcek</a></dt>
+            <dd>Enigmabridge</dd>
+			
+			<dt><a href="https://danez.is/">George Danezis</a>, <a href="https://twitter.com/gdanezis">@gdanezis</a></dt>
+            <dd>University College London (UCL)</dd>
+          </dl>
+
+		  <p class="text-center">
+            <a class="button button-primary" href="mailto:v.mavroudis@cs.ucl.ac.uk">Contact us</a>
+          </p>
+		  
+        </div>
+      </div>
+
+      <div id="Publications" class="row">
+        <div class="tweleve columns">
+          <h2>Publications</h2>
+			<!--
+          <p>names
+          <em><a href="link" target="_blank">
+                  title, date
+          [<a href="link to pdf">PDF</a>]
+		  </p>
+		  -->
+       </div>
+
+
+      <footer class="row text-center text-pale">
+        <div class="tweleve columns">
+          <hr />
+          <p>&copy;2017 all rights are reserved to the respective authors.
+
+            <br />
+
+
+        </div>
+      </footer>
+    </div>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-104137124-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+  </body>
+</html>
