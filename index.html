@@ -34,8 +34,8 @@
           <br />
 
           <div class="text-center">
-          <h1 style="margin-top: 2%;" class="text-center">Cryptographic Hardware <br/>from Untrusted Components</h1>
- 
+			<h1 style="margin-top: 2%;" class="text-center">Cryptographic Hardware <br/>from Untrusted Components</h1>
+			<p><a href="http://sec.cs.ucl.ac.uk/home/">University College London</a> / <a href="https://enigmabridge.com/">Enigmabridge</a> / <a href="https://crocs.fi.muni.cz/main">Masaryk University</a></p>
           </div>
 
             <nav class="text-center text-large">
@@ -53,9 +53,17 @@
           <div class="text-large text-justify">
 			            <h4 class="text-center">In a Nutshell</h4>
 
-			<p>For the first time, <strong>we introduce a high-level architecture that can tolerate multiple, colluding malicious hardware components</strong>, and a new approach for managing the risk of compromises in cryptographic hardware.</p>
+			<p>For the first time, <strong>we introduce a high-level architecture that can tolerate multiple, colluding malicious hardware components</strong>, and a new approach for managing the risk of compromises in cryptographic hardware modules.</p>
 		  
 			<p>Existing high-assurance systems cannot reliably maintain their security properties in the presence of compromised hardware components. In this work, we challenge this perception and demonstrate how trusted, high-assurance hardware can be built from untrusted and potentially malicious components.</p>            
+			
+			<figure class="figure" align="center">
+				<img src="images/board_sideA.jpg" height="200px" class="figure-img img-fluid rounded" alt="Myst: Our secure cyrptographic hardware prototype."/>
+				<figcaption class="figure-caption text-right">Myst: Our secure cryptographic hardware prototype.</figcaption>
+			</figure>
+			
+			
+			
           </div>
         </div>
       </div>
@@ -73,29 +81,35 @@
         <div class="tweleve columns">
           <h3>FAQ</h3>
           <dl>		  
-            <dt>What's an untrusted component?</dt>
-            <dd>Any kind of hardware component (e.g., Integrated Circuit) whose circuitry and functionality has not been 100% audited. This is often the case with components that are produced in facilities overseas. </dd>
-				
-			<dt>Is your architecture secure against all types of errors and attacks?</dt>
-            <dd> Existing cryptographic hardware is not tolerant to hardware errors and even one compromised component is enough to breach the security of the whole system. In contrast, our architecture is tolerant to both unintentional and intentional errors: 
-			<ul>
-				<li>Unintentional errors usually occur in ICs with fabrication deficiences (e.g., broken Random Number Generators).</li>
-				<li>Intentional errors are usually <i>"hardware trojan horses"</i> or <i>"backdoors"</i> put in place by an adversary residing in the IC supply chain.</li>
-			</ul>
-			</dd>
-
+		  
+		  	<dt>What's an untrusted component?</dt>
+            <dd>Any kind of hardware component (e.g., Integrated Circuit) who doesn't come with 100% guarantee for the integrity of its supply chain. This is often the case with components that are produced in facilities overseas. Even if a single part of the supply chain is not closely monitored then malicious circuitry may be introduced.</dd>
+		  
+            <dt>Isn't existing cryptographic hardware already secure against this known problem?</dt>
+            <dd>It depends on the capabilities of the adversary assumed by the hardware designers. In principle, commercially available hardware is not secure against an adversary (e.g., a national goverment) that has access to fabrication facilities (or other parts of the supply chain) and can influence them to include backdoors or errors in the chip manufactured. While this is true for many use cases, there have been incidents where state-level adversaries breached parts of the supply chain to load trojans or backdoors in the hardware.</dd>
+														
 			<dt>Can't hardware vendors just test the chips they use?</dt>			
 			<dd>In the last decade, the problem of manufacturing errors became increasingly prominent, as more vendors opt to outsource the fabrication of their integrated circuit designs, in facilities overseas. For this reason, vendors run post-fabrication tests that automatically weed out deficient and faulty chips. However, such tests are not effective against two very damaging error classes: 1) subtle unintentional errors (e.g., malfunctioning RNGs) and 2) malicious circuitry (e.g., stealthy Hardware Trojans). Such errors are very hard to detect and require constant upgrades of expensive forensics equipment, which contradicts the motives of fabrication outsourcing.</dd>
 			
 		    <dt>What about colluding malicious hardware components?</dt>
-            <dd> In the case of colluding components, our proposed architecture remains
-			secure as long as at least one of the components is not compromised. Alternatively, 
-			if there are two or more adversaries that managed to compromise 100% of the components, the system retains its security proprerties as long as they adversaries do not collude.
-			</dd>		
+            <dd> In the case of colluding components, our proposed architecture remains secure as long as at least one of the components is not compromised. Alternatively, if there are two or more adversaries that managed to compromise 100% of the components, the system retains its security proprerties as long as they adversaries do not collude.
+			</dd>				  
 			
+			<dt>Is your architecture secure against all types of errors and attacks?</dt>
+            <dd>Existing cryptographic hardware is not tolerant to hardware errors and even one compromised component is enough to breach the security of the whole system. In contrast, our architecture is tolerant to both unintentional and intentional errors: 
+			<ul>
+				<li>Unintentional errors usually occur in ICs with fabrication deficiences (e.g., broken Random Number Generators).</li>
+				<li>Intentional errors are usually <i>"hardware trojan horses"</i> or <i>"backdoors"</i> put in place by an adversary residing in the IC supply chain.</li>
+			</ul>
+			However, it should be noted that if all hardware components are compromised then the security properties of Myst are also breached.
+			</dd>
 
+			<dt>How do you compare with previously proposed mitigation techniques (e.g., split-manufacturing)?</dt>
+            <dd>
+			Such techniques are very useful and actually necessary for the security of our system. By using multiple chips (i.e., Integrated Circuits) featuring different hardware trojan mitigation techniques we can increase the trojan resilience. This is because,
+			as long as one of the chips resists the attack the whole system retains its security properties.
+			</dd>
 			
-		  
           </dl>
         </div>
       </div>
@@ -103,8 +117,6 @@
       <div id="Members" class="row">
         <div class="tweleve columns">
           <h2>Who we are</h2>
-		  <p>A joint research project between <a href="http://sec.cs.ucl.ac.uk/home/">University College London</a>, <a href="https://crocs.fi.muni.cz/main">Masaryk University</a> and <a href="https://enigmabridge.com/">Enigmabridge</a></p>
-
           <dl>
 			<dt><a href="https://mavroud.is/">Vasilios Mavroudis</a>, <a href="https://twitter.com/mavroudisv">@mavroudisv</a></dt>
             <dd>University College London (UCL)</dd>
@@ -154,14 +166,31 @@
               href="files/Defcon25.pdf">Slides</a>]
 		</p>		  
        </div>
+	  </div>
 
 
+      <div id="supported" class="row">
+        <div class="tweleve columns">
+          <h2>Supported by</h2>	  
+			This work was supported by the European Commission through the H2020-DS-2014-653497 PANORAMIX project and the European Research Council via the European Union’s Seventh Framework Programme (FP/2007-2013) / ERC Grant Agreement n. 307937, and the Czech Science Foundation under project GA16-08565S.<p>&nbsp;</p>
+
+		</div>
+	  </div>
+		
+		
+	  <div class="row" align="center">
+		<div class="mx-auto">
+			<a href="http://sec.cs.ucl.ac.uk/home/"><img src="images/ucl_logo.jpg"/ height="85px" margin-left="500px"></a>       
+			<a href="https://enigmabridge.com/"><img src="images/eb_logo.jpg"/ height="100px"></a>
+			<a href="https://crocs.fi.muni.cz/main"><img src="images/crocs_logo.png" height="110px"/></a>
+		</div>
+	  </div>
+
+	  
       <footer class="row text-center text-pale">
         <div class="tweleve columns">
           <hr />
-          <p>&copy;2017 all rights are reserved to the respective authors.
-
-            <br />
+          <p>&copy;2017 all rights are reserved to the respective authors.<br/>
 
 
         </div>
